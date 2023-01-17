@@ -41,7 +41,7 @@
                             </li>
                             <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
                             <li>
-                               <a href="#"><i class="halflings-icon off"></i> Logout</a>
+                               <a href="{{route('admin.logout')}}"><i class="halflings-icon off"></i> Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -57,15 +57,20 @@
         <div id="sidebar-left" class="span2">
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
-                    <li><a href="#"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+                    <li><a href="{{route('admin.dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 
-                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
+                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Skills</span></a></li>
+                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Experience</span></a></li>
+                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Education</span></a></li>
+                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Tools</span></a></li>
+                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Certificate</span></a></li>
                     <li>
-                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span><span class="label label-important"> 3 </span></a>
+                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Setting</span></a>
                         <ul>
-                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 1</span></a></li>
-                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
-                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
+                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet">User Information</span></a></li>
+                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet">Social Link</span></a></li>
+                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet">Personal Information</span></a></li>
+                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet">Langauge</span></a></li>
                         </ul>
                     </li>
                 </ul>

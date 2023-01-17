@@ -28,6 +28,6 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     //Admin Dashboard
     Route::get('admin-dashboard',[AdminController::class,'adminDashboard'])->name('admin.dashboard');
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::get('admin-logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
 });
 require __DIR__.'/auth.php';
