@@ -59,11 +59,12 @@
                 <ul class="nav nav-tabs nav-stacked main-menu">
                     <li><a href="{{route('admin.dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 
-                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Skills</span></a></li>
-                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Experience</span></a></li>
-                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Education</span></a></li>
-                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Tools</span></a></li>
-                    <li><a href="#"><i class="icon-tasks"></i><span class="hidden-tablet">Certificate</span></a></li>
+                    <li><a href="{{route('admin.skill')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Skills</span></a></li>
+                    <li><a href="{{route('admin.experience')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Experience</span></a></li>
+                    <li><a href="{{route('admin.project')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Project</span></a></li>
+                    <li><a href="{{route('admin.education')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Education</span></a></li>
+                    <li><a href="{{route('admin.tools')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Tools</span></a></li>
+                    <li><a href="{{route('admin.certificate')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Certificate</span></a></li>
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Setting</span></a>
                         <ul>
