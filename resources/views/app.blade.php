@@ -68,10 +68,10 @@
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Setting</span></a>
                         <ul>
-                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet">User Information</span></a></li>
-                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet">Social Link</span></a></li>
-                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet">Personal Information</span></a></li>
-                            <li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet">Langauge</span></a></li>
+                            <li><a class="submenu" href="{{route('admin.user.details')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">User Details</span></a></li>
+                            <li><a class="submenu" href="{{route('admin.social.link')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Social Link</span></a></li>
+                            <li><a class="submenu" href="{{route('admin.personal.information')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Personal Information</span></a></li>
+                            <li><a class="submenu" href="{{route('admin.languages')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Language</span></a></li>
                         </ul>
                     </li>
                 </ul>
