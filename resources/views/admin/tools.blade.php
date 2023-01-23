@@ -19,12 +19,13 @@
                 </div>
             </div>
             <div class="box-content">
-                <form method="post" action="" class="form-horizontal">
+                <form method="post" action="{{route('admin.tools.store')}}" class="form-horizontal">
+                    @csrf
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="typeahead">Name Of Tools</label>
                             <div class="controls">
-                                <input type="text" class="span6 typeahead" id="skill"  name="name"  >
+                                <input type="text" class="span6 typeahead" id="skill"  name="name">
                             </div>
                         </div>
                         <div class="control-group">
@@ -65,12 +66,17 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($tools as $key=>$data)
                     <tr>
-                        <td>1</td>
-                        <td>VS Code</td>
-                        <td class="center">Use to code wright</td>
+                        <td>{{$key+1}}</td>
+                        <td>{{$data->name}}</td>
+                        <td class="center">{!! $data->details !!}</td>
                         <td class="center">
-                            <span class="label label-success">Active</span>
+                            @if($data->status==1)
+                                <span class="label label-success">Active</span>
+                            @else
+                                <span class="label label-important">Inactive</span>
+                            @endif
                         </td>
                         <td class="center">
                             <a class="btn btn-info" href="#">
@@ -81,6 +87,7 @@
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

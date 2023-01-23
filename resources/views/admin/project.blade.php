@@ -19,7 +19,8 @@
                 </div>
             </div>
             <div class="box-content">
-                <form method="post" action="" class="form-horizontal">
+                <form method="post" action="{{route('admin.project.store')}}" class="form-horizontal">
+                    @csrf
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="typeahead">Project Name</label>
@@ -31,7 +32,7 @@
                         <div class="control-group">
                             <label class="control-label" for="typeahead">Project Link</label>
                             <div class="controls">
-                                <input type="text" class="span6 typeahead" id="registration" name="registration">
+                                <input type="text" class="span6 typeahead" id="link" name="link">
                             </div>
                         </div>
 
@@ -75,13 +76,18 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($projects as $key=>$data)
                     <tr>
-                        <td>1</td>
-                        <td>Medisquare</td>
-                        <td><a href="https://medisquare.com.bd/" target="_blank">https://medisquare.com.bd/</a></td>
-                        <td class="center">Health Related Website</td>
+                        <td>{{$key+1}}</td>
+                        <td>{{$data->name}}</td>
+                        <td><a href="{{$data->link}}" target="_blank">{{$data->link}}</a></td>
+                        <td class="center">{!! $data->details !!}</td>
                         <td class="center">
-                            <span class="label label-success">Active</span>
+                            @if($data->status==1)
+                                <span class="label label-success">Active</span>
+                            @else
+                                <span class="label label-important">Inactive</span>
+                            @endif
                         </td>
                         <td class="center">
                             <a class="btn btn-info" href="#">
@@ -92,6 +98,7 @@
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
