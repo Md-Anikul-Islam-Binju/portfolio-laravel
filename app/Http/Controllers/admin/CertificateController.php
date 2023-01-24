@@ -13,7 +13,7 @@ class CertificateController extends Controller
 {
     public function index()
     {
-        $certificates = Certificate::latest()->get();
+        $certificates = Certificate::where('user_id', Auth::id())->latest()->get();
         return view('admin.certificate',compact('certificates'));
     }
 

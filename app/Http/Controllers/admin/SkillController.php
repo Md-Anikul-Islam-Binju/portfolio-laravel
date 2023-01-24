@@ -12,7 +12,7 @@ class SkillController extends Controller
 {
     public function index()
     {
-        $skills = Skill::latest()->get();
+        $skills = Skill::where('user_id', Auth::id())->latest()->get();
         return view('admin.skill',compact('skills'));
     }
 

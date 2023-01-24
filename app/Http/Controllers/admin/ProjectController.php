@@ -13,7 +13,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::latest()->get();
+        $projects = Project::where('user_id', Auth::id())->latest()->get();
         return view('admin.project',compact('projects'));
     }
 

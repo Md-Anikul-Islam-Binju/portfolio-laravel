@@ -13,7 +13,7 @@ class ToolsController extends Controller
 {
     public function index()
     {
-        $tools =Tool::latest()->get();
+        $tools =Tool::where('user_id', Auth::id())->latest()->get();
         return view('admin.tools',compact('tools'));
     }
 
