@@ -67,7 +67,8 @@ Route::middleware('auth')->group(function () {
     Route::post('admin-certificate-store',[CertificateController::class,'store'])->name('admin.certificate.store');
 
     //User Details
-    Route::get('admin-user-details',[UserDetailsController::class,'index'])->name('admin.user.details');
+    Route::get('admin-user-details/{id}',[UserDetailsController::class,'index'])->name('admin.user.details');
+    Route::post('admin-user-details-update/{id}',[UserDetailsController::class,'update'])->name('admin.user.details.update');
 
     //Social Link
     Route::get('admin-social-link',[SocialLinkController::class,'index'])->name('admin.social.link');

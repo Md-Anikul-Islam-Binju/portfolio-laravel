@@ -68,7 +68,11 @@
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Setting</span></a>
                         <ul>
-                            <li><a class="submenu" href="{{route('admin.user.details')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">User Details</span></a></li>
+                            @php
+                            $id = Illuminate\Support\Facades\Auth::id();
+                            $user = App\Models\User::where('id',$id)->first();
+                            @endphp
+                            <li><a class="submenu" href="{{route('admin.user.details',$user->id)}}"><i class="icon-file-alt"></i><span class="hidden-tablet">User Details</span></a></li>
                             <li><a class="submenu" href="{{route('admin.social.link')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Social Link</span></a></li>
                             <li><a class="submenu" href="{{route('admin.personal.information')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Personal Information</span></a></li>
                             <li><a class="submenu" href="{{route('admin.languages')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Language</span></a></li>
