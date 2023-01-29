@@ -22,19 +22,22 @@
     <link href="{{('frontend/css/style.css')}}" rel="stylesheet">
 </head>
 <body>
-
+@php
+    $user = \App\Models\User::first();
+    $link = \App\Models\admin\SocialLink::first();
+@endphp
 <!-- ======= Top Bar ======= -->
 <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">anikul.islam.binju@gmail.com</a>
-            <i class="bi bi-phone-fill phone-icon"></i> +8801905256528
+            <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">{{$user->email}}</a>
+            <i class="bi bi-phone-fill phone-icon"></i> +88{{$user->phone}}
         </div>
         <div class="social-links d-none d-md-block">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="{{$link->twitter}}" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="{{$link->facebook}}" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="{{$link->instagram}}" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="{{$link->linkedin}}" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
     </div>
 </section>
@@ -43,21 +46,20 @@
 <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center">
         <div class="logo me-auto">
-            <h1><a href="index.html">Md Anikul Islam(BWTAIP)</a></h1>
+            <h1><a href="index.html">{{$user->name}}(BWTAIP)</a></h1>
         </div>
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                 <li><a class="nav-link scrollto" href="#about">About</a></li>
-                <li><a class="nav-link scrollto" href="#services">Technology</a></li>
+                <li><a class="nav-link scrollto" href="#services">Skill</a></li>
                 <li><a class="nav-link scrollto" href="#team">Project</a></li>
                 <li class="dropdown"><a href="#"><span>User Information</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @if (Route::has('login'))
                             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                <li><a href="#">Account</a></li>
                                 @auth
-                                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                                    <a href="{{ url('/admin-dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                                 @else
                                     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 

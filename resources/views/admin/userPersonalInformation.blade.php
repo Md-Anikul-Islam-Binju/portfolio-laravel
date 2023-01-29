@@ -19,7 +19,8 @@
                 </div>
             </div>
             <div class="box-content">
-                <form method="post" action="" class="form-horizontal">
+                <form method="post" action="{{route('admin.personal.information.store')}}" class="form-horizontal">
+                    @csrf
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="typeahead">Father Name</label>
@@ -38,7 +39,7 @@
                         <div class="control-group">
                             <label class="control-label" for="typeahead">Date Of Birth</label>
                             <div class="controls">
-                                <input type="date" class="span6 typeahead" id="passing" name="birthdate">
+                                <input type="date" class="span6 typeahead" id="passing" name="birthday">
                             </div>
                         </div>
 
@@ -73,7 +74,7 @@
                         <div class="control-group">
                             <label class="control-label" for="typeahead">National Id</label>
                             <div class="controls">
-                                <input type="text" class="span6 typeahead" id="passing" name="national_id">
+                                <input type="text" class="span6 typeahead" id="passing" name="nid">
                             </div>
                         </div>
 
@@ -115,16 +116,17 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($personalInformation as $key=>$data)
                     <tr>
-                        <td>1</td>
-                        <td>Md Edris Mia</td>
-                        <td>Amena Begum</td>
-                        <td>01-01-1996</td>
-                        <td>Bangladeshi</td>
-                        <td>Islam</td>
-                        <td>Football</td>
-                        <td>O+</td>
-                        <td>2587412586</td>
+                        <td>{{$key+1}}</td>
+                        <td>{{$data->father_name}}</td>
+                        <td>{{$data->mother_name}}</td>
+                        <td>{{$data->birthday}}</td>
+                        <td>{{$data->nationality}}</td>
+                        <td>{{$data->religion}}</td>
+                        <td>{{$data->hobby}}</td>
+                        <td>{{$data->blood_group}}</td>
+                        <td>{{$data->nid}}</td>
                         <td class="center">
                             <a class="btn btn-info" href="#">
                                 <i class="halflings-icon white edit"></i>
@@ -134,6 +136,7 @@
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

@@ -72,9 +72,11 @@ Route::middleware('auth')->group(function () {
 
     //Social Link
     Route::get('admin-social-link',[SocialLinkController::class,'index'])->name('admin.social.link');
+    Route::post('admin-social-link-store',[SocialLinkController::class,'store'])->name('admin.social.link.store');
 
     //Personal Information
     Route::get('admin-personal-information',[PersonalInformationController::class,'index'])->name('admin.personal.information');
+    Route::post('admin-personal-information-store',[PersonalInformationController::class,'store'])->name('admin.personal.information.store');
 
     //Languages
     Route::get('admin-languages',[LanguagesController::class,'index'])->name('admin.languages');

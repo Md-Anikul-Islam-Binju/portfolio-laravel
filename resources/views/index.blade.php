@@ -1,26 +1,20 @@
 @extends('welcome')
 @section('content')
+
 {{--About Section--}}
+@php
+    $user = \App\Models\User::first();
+@endphp
 <section id="about" class="about">
     <div class="container" data-aos="fade-up">
         <div class="row no-gutters">
             <div class="col-lg-6 video-box">
-                <img src="{{URL::to('frontend/img/about.jpg')}}" class="img-fluid" alt="">
+                <img src="{{ asset('storage/profile/'.$user->profile) }}" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
                 <div class="section-title">
                     <h2>About</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
-                </div>
-                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon"><i class="bx bx-fingerprint"></i></div>
-                    <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-                </div>
-                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon"><i class="bx bx-gift"></i></div>
-                    <h4 class="title"><a href="">Nemo Enim</a></h4>
-                    <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                    <p>{!!$user->details!!}</p>
                 </div>
             </div>
         </div>
@@ -63,113 +57,64 @@
     </div>
 </section>
 <!-- ======= Technology Section ======= -->
+@php
+$skill = \App\Models\admin\Skill::get();
+@endphp
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
         <div class="section-title">
-            <h2>Use Technology</h2>
+            <h2>My Skills</h2>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-                <div class="icon"><i class="bi bi-chat-left-dots"></i></div>
-                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon"><i class="bi bi-bounding-box"></i></div>
-                <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon"><i class="bi bi-globe"></i></div>
-                <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon"><i class="bi bi-broadcast"></i></div>
-                <h4 class="title"><a href="">Magni Dolores</a></h4>
-                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
+
+            @foreach($skill as $data)
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                 <div class="icon"><i class="bi bi-brightness-high"></i></div>
-                <h4 class="title"><a href="">Nemo Enim</a></h4>
-                <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                <h4 class="title"><a href="">{{$data->name}}</a></h4>
+                <p class="description">{!! $data->details !!}</p>
             </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-                <div class="icon"><i class="bi bi-calendar2-week"></i></div>
-                <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>
 
 <!-- ======= Project ======= -->
+@php
+$project = \App\Models\admin\Project::get();
+@endphp
 <section id="team" class="team">
     <div class="container" data-aos="fade-up">
         <div class="section-title">
             <h2>Project</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
-        </div>
+            <p>My Completed Project name and link.</p>
+        </div></br></br>
         <div class="row">
+            @foreach($project as $data)
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="member">
-                    <div class="pic"><img src="{{('frontend/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
+{{--                    <div class="pic">--}}
+{{--                        <img src="{{('frontend/img/team/team-1.jpg')}}" class="img-fluid" alt="">--}}
+{{--                    </div>--}}
                     <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
+                        <h4>{{$data->name}}</h4>
+                        <span>{!! $data->details !!}</span>
+                        <span>
+                            <a href="{{$data->link}}" style="color: honeydew"; target="_blank">Project Link</a>
+                        </span>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
-                <div class="member">
-                    <div class="pic"><img src="{{('frontend/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
-                <div class="member">
-                    <div class="pic"><img src="{{('frontend/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
-                <div class="member">
-                    <div class="pic"><img src="{{('frontend/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
-                <div class="member">
-                    <div class="pic"><img src="{{('frontend/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
-                <div class="member">
-                    <div class="pic"><img src="{{('frontend/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                    <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>
 
 <!-- ======= Contact Us Section ======= -->
+@php
+$user = \App\Models\User::first();
+@endphp
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
         <div class="section-title">
@@ -180,21 +125,21 @@
                 <div class="info-box">
                     <i class="bx bx-map"></i>
                     <h3>Our Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
+                    <p>Badda,DIT Project,Dhaka 1212</p>
                 </div>
             </div>
             <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="100">
                 <div class="info-box">
                     <i class="bx bx-envelope"></i>
                     <h3>Email Us</h3>
-                    <p>info@example.com<br>contact@example.com</p>
+                    <p>{{$user->email}}<br>{{$user->optional_email}}</p>
                 </div>
             </div>
             <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
                 <div class="info-box ">
                     <i class="bx bx-phone-call"></i>
                     <h3>Call Us</h3>
-                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                    <p>+88{{$user->phone}}<br>+88{{$user->emergency_contact}}</p>
                 </div>
             </div>
             <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">

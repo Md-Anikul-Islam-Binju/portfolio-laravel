@@ -29,6 +29,8 @@
                             </div>
                         </div>
 
+                        <img style="height: 70px; width: 100px; margin-left: 182px;border-radius: 50%;"  src="{{ asset('storage/profile/'.$user->profile) }}">
+
                         <div class="control-group">
                             <label class="control-label" for="typeahead">Phone</label>
                             <div class="controls">
@@ -60,7 +62,7 @@
                         <div class="control-group">
                             <label class="control-label" for="textarea2">Summary</label>
                             <div class="controls">
-                                <textarea class="cleditor" id="textarea2" rows="3" name="details">{!! $user->details !!}</textarea>
+                                <textarea class="cleditor" id="textarea2" rows="2" name="details">{!! $user->details !!}</textarea>
                             </div>
                         </div>
 

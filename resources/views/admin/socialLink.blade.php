@@ -19,7 +19,8 @@
                 </div>
             </div>
             <div class="box-content">
-                <form method="post" action="" class="form-horizontal">
+                <form method="post" action="{{route('admin.social.link.store')}}" class="form-horizontal">
+                    @csrf
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label" for="typeahead">Facebook</label>
@@ -64,6 +65,13 @@
                         </div>
 
                         <div class="control-group">
+                            <label class="control-label" for="typeahead">Toutube</label>
+                            <div class="controls">
+                                <input type="text" class="span6 typeahead" id="passing" name="youtube">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
                             <label class="control-label" for="typeahead">Website(Optional)</label>
                             <div class="controls">
                                 <input type="text" class="span6 typeahead" id="passing" name="website">
@@ -99,19 +107,16 @@
                         <th>Facebook</th>
                         <th>Linkedin</th>
                         <th>GitHub</th>
-                        <th>GitLab(Optional)</th>
-                        <th>Website(Optional)</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($link as $key=>$data)
                     <tr>
-                        <td>1</td>
-                        <td>http://127.0.0.1:8000/admin-user-details</td>
-                        <td>http://127.0.0.1:8000/admin-user-details</td>
-                        <td>http://127.0.0.1:8000/admin-user-details</td>
-                        <td>http://127.0.0.1:8000/admin-user-details</td>
-                        <td>http://127.0.0.1:8000/admin-user-details</td>
+                        <td>{{$key+1}}</td>
+                        <td>{{$data->facebook}}</td>
+                        <td>{{$data->linkedin}}</td>
+                        <td>{{$data->github}}</td>
                         <td class="center">
                             <a class="btn btn-info" href="#">
                                 <i class="halflings-icon white edit"></i>
@@ -121,6 +126,7 @@
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
